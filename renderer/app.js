@@ -4,10 +4,28 @@ const items = require('./items');
 let showModal = document.getElementById('show-modal'),
     closeModal = document.getElementById('close-modal'),
     addItem = document.getElementById('add-item'),
-    itemUrl = document.getElementById('url');
+    itemUrl = document.getElementById('url'),
+    search = document.getElementById('search');
+
+// Filter Items
+search.addEventListener('keyup', e => {
+    
+    // Loop items
+    Array.from(document.getElementsByClassName('read-item')).forEach(item => {
+        // Hide items that don't match search value
+        let hasMatch = item.innerText.toLowerCase().includes(search.value);
+        item.style.display = hasMatch ? 'flex' : 'none'
+    })
+})
+
+// Navigate Item selection with up/down arrows
+document.addEventListener('keydown', e => {
+    if(e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        items.changeSelection(e.key);
+    }
+});
 
 // Toggle Modal Button
-
 const toggleModalButtons = () => {
 
     // Check state of buttons
