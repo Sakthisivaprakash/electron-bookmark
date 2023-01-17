@@ -1,14 +1,16 @@
 {
-  "name": "master-electron",
+  "name": "readit",
   "version": "1.0.0",
-  "description": "Master Electron Course Code",
+  "description": "Master Electron Project",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "watch": "nodemon --exec electron .",
-    "reset": "git reset --hard"
+    "reset": "git reset --hard",
+    "build": "electron-builder --help"
   },
-  "repository": "https://github.com/stackacademytv/master-electron",
+  "repository": "https://github.com/Sakthisivaprakash/electron-bookmark",
+  "homepage": "https://github.com/Sakthisivaprakash/electron-bookmark",
   "keywords": [
     "Electron",
     "Master Electron",
@@ -18,9 +20,24 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^9.0.0",
+    "electron-builder": "^23.6.0",
     "nodemon": "^2.0.0"
   },
   "dependencies": {
     "electron-window-state": "^5.0.3"
+  },
+  "build": {
+    "appId": "com.techiesakthi.readit",
+    "copyright": "Copyright techiesakthi.com",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "zip"
+    },
+    "linux": {
+      "category": "Utility"
+    }
   }
 }
