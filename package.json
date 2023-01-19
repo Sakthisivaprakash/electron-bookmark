@@ -8,6 +8,7 @@
     "watch": "nodemon --exec electron .",
     "reset": "git reset --hard",
     "build": "electron-builder -w",
+    "release": "electron-builder -w -p onTagOrDraft",
     "win-cert": "electron-builder create-self-signed-cert -p techiesakthi"
   },
   "repository": "https://github.com/Sakthisivaprakash/electron-bookmark",
@@ -30,6 +31,9 @@
   "build": {
     "appId": "com.techiesakthi.readit",
     "copyright": "Copyright techiesakthi.com",
+    "publish": {
+      "provider": "github"
+    },
     "mac": {
       "category": "public.app-category.productivity",
       "target": "dmg"
